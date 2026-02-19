@@ -1,0 +1,147 @@
+:root {
+    background-color: #FEBD17;
+    font-size : 62.5%;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    color: #F2F2F2
+}
+
+@font-face {
+    font-family: 'BuhunOneFree';
+    src: url('Buhun-Retro-One-FREE-BF6958e5f59cf58.otf') format('opentype');
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 5.4rem;
+    font-family: 'BuhunOneFree';
+    color: #1BC0DA;
+    margin-bottom: 5rem;
+}
+
+h1 > span {
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 4.2rem;
+    margin-bottom: 4rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 2.8rem;
+    font-weight: 500
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+}
+
+#content {
+    position: relative;
+}
+#content img {
+    width: min(15vw, 15vh);
+    height: min(15vw, 15vh);
+    max-width: 15rem;
+    max-height: 15rem;
+    min-width: 5rem;
+    min-height: 5rem;
+}
+
+#content #account {
+    position: absolute;
+    top: 5vh;
+    right: 5vw;
+}
+
+#content #daily-reward {
+    position: absolute;
+    top: 5vh;
+    left: 5vw;
+}
+
+/* UTILITIES */
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.container > * {
+    width: 100%;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-left {
+    justify-content: left;
+    align-items: left;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* BUTTONS */
+.btn {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+    width: 20rem;
+    text-align: center;
+    border: 1rem solid #1BC0DA;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: #F2F2F2;
+    background-color: #FFAEC9;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(27, 192, 218, 0.5); /*rgba equivalent of #1BC0DA*/
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
+.btn[disabled]:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}

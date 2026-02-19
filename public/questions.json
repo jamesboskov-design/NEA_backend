@@ -1,0 +1,26 @@
+[
+    {
+        "question": "What is the capital of Myanmar?",
+        "choice1": "Bangkok",
+        "choice2": "Ho Chi Minh city",
+        "choice3": "Naypyidaw",
+        "choice4": "Sarajevo",
+        "answer": 3
+    },
+    {
+        "question": "Who is the Prime Minister of Canada?",
+        "choice1": "Mark Carney",
+        "choice2": "Pierre Trudeau",
+        "choice3": "Justin Trudeau",
+        "choice4": "Keir Starmer",
+        "answer": 1
+    },
+    {
+        "question": "Which jazz trumpeter/vocalist recorded Almost Blue-Live, solely 11 months before his tragic demise?",
+        "choice1": "Gerry Mulligan",
+        "choice2": "Miles Davis",
+        "choice3": "Dizzy Giuseppe",
+        "choice4": "Chet Baker",
+        "answer": 4
+    }
+]

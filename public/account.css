@@ -1,0 +1,45 @@
+#options {
+    display: flex;
+    justify-content: space-between;
+    width: 40vw;
+    margin-left: 10vw;
+}
+
+#option {
+    text-align: center;
+    font-size: 2rem;
+    text-align: center;
+}
+
+fieldset {
+    width: 30vw;
+    height: 30vh;
+    border: 0;
+}
+
+
+label {
+    font-size: 3rem;
+}
+
+input {
+    width: 30vw;
+    height: 10vh;
+    color: black;
+    font-size: 2.25rem;
+}
+
+.btn {
+    width: 30vw;
+}
+
+.notice {
+    font-size: 1.5rem;
+    padding: 0.5rem 0;
+    width: 30vw;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: #F2F2F2;
+    background-color: #DC3545;
+}

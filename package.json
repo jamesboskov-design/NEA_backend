@@ -1,0 +1,29 @@
+{
+  "name": "nea_backend",
+  "version": "1.0.0",
+  "description": "back end for my NEA, may be temporary",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesboskov-design/NEA_backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jamesboskov-design/NEA_backend/issues"
+  },
+  "homepage": "https://github.com/jamesboskov-design/NEA_backend#readme",
+  "dependencies": {
+    "better-sqlite3": "^12.6.2",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11"
+  }
+}

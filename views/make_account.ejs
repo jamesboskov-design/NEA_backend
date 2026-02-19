@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make account</title>
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="account.css">  
+</head>
+<body>
+    <div id="content">
+        <a href="/account"><img src="user.png" alt="account" id="account"></a>
+        <a href="/daily_reward"><img src="calendar.png" alt="daily reward" id="daily-reward"></a>
+    </div>
+    <div class="container">
+        <div id="home" class="flex-center flex-column">
+            <h1><a href="/index">Quiz App</a></h1>
+            <div id="options">
+                <div id="option">
+                    <h2 id="login">
+                        <a href="/login">log in</a>
+                    </h2>
+                </div>
+                <div id="option">
+                    <h2 id="makeAccount">
+                        <a href="/make_account"><u>make an account</u></a>
+                    </h2>
+                </div>
+            </div>
+            <main>
+                <form action="/register" method="POST">
+                <% errors.forEach(error => { %>
+                    <p class="notice"><%= error %></p>
+                <% }); %>
+                <fieldset class="flex-left flex-column">
+                    <label for="username"><small>Username:</small></label>
+                    <br />
+                    <input type="text" id="username" name="username" autocomplete="off">
+                    <br />
+
+                    <label for="password"><small>Password:</small></label>
+                    <br />
+                    <input type="password" id="password" name="password" autocomplete="off">
+
+                    <br />
+                    <br />
+                    <button class="btn">Sign up</button>
+                </fieldset>
+                </form>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
