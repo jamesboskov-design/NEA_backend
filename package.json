@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/jamesboskov-design/NEA_backend#readme",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "better-sqlite3": "^12.6.2",
     "ejs": "^4.0.1",
     "express": "^5.2.1",

@@ -1,11 +1,12 @@
 const express = require("express")
+const bcrypt = require("bcrypt")
 const db = require("better-sqlite3")("ourApp.db")
 db.pragma("journal_mode = WAL")
 
 //db setup
 const createTables = db.transaction(() => {
     db.prepare(`
-        CREATE TABLE IF NOT EXISTS users(
+        CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         username STRING NOT NULL UNIQUE,
         password STRING NOT NULL
@@ -93,10 +94,15 @@ app.post("/register", (req, res) => {
     } 
     
     //save new user into db
+    const salt = bcrypt.genSaltSync(10)
+    req.body.password = bcrypt.hashSync(req.body.password, salt)
 
+    const ourStatement = db.prepare("INSERT INTO users (username, password) Values (?, ?)")
+    ourStatement.run(req.body.username, req.body.password)
 
 
     //log  user in with cooklies
+    res.send("Thank you!")
 })
 
 app.listen(3000)
