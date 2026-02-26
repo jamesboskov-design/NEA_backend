@@ -32,6 +32,9 @@
                 <% errors.forEach(error => { %>
                     <p class="notice"><%= error %></p>
                 <% }); %>
+                <% if (creation_text) {%>
+                    <p class="success">Account successfully created!</p>
+                <% } %>
                 <fieldset class="flex-left flex-column">
                     <label for="username"><small>Username:</small></label>
                     <br />

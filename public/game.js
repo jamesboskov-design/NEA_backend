@@ -48,6 +48,7 @@ fetch("https://opentdb.com/api.php?amount=10&type=multiple")
 //CONSTS
 const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 10;
+const TIMERLENGTH = 20;
 
 const startGame = () => {
     questionCounter = 0;
@@ -59,13 +60,13 @@ const startGame = () => {
 
 const getNewQuestion = () => {
     if(availableQuestions.length == 0 || questionCounter > MAX_QUESTIONS-1){
+
         localStorage.setItem("quizScore", score);
         // go to the end page
         return window.location.assign("/end")
     };
 
-    const timerLength = 20
-    timer(timerLength)
+    timer(TIMERLENGTH)
 
     questionCounter++;
     progressText.innerText = "question " + questionCounter + "/" + MAX_QUESTIONS;
