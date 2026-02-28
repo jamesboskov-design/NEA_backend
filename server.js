@@ -20,9 +20,10 @@ const createTables = db.transaction(() => {
     db.prepare(`
         CREATE TABLE IF NOT EXISTS quizResults (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        userId INTEGER,
+        userId INTEGER NOT NULL,
         score INTEGER NOT NULL,
-        timeTaken INTEGER NOT NULL
+        timeTaken INTEGER NOT NULL,
+        dateCompleted INTEGER NOT NULL
         )
         `).run()
 })
@@ -35,6 +36,7 @@ app.set("view engine", "ejs")
 app.use(express.urlencoded({extended: false}))
 app.use(express.static("public"))
 app.use(cookieParser())
+app.use(express.json())
 
 app.use(function (req, res, next) {
     res.locals.errors = []
@@ -51,21 +53,6 @@ app.use(function (req, res, next) {
 
     res.locals.user = req.user
     next()
-})
-
-// making api so game can access user id
-
-app.get("/api/user", (req, res) => {
-    let userid = ""
-    try {
-        const decoded = jwt.verify(req.cookies.ourSimpleApp, process.env.JWTSECRET)
-        const user = decoded
-        userid_stuff = user.userid
-    } catch(err) {
-        userid_stuff = false
-    }
-
-    res.json({ userId: userid_stuff })
 })
 
 // making links between websites work
@@ -203,6 +190,30 @@ app.post("/login", (req, res) => {
     
     showLoginText = true
     return res.render("login", { showLoginText })
+})
+
+app.post("/quizData", (req, res) => {
+    if(req.user){
+        const ourStatement = db.prepare("INSERT INTO quizResults (userId, score, timeTaken, dateCompleted) Values (?, ?, ?, ?)")
+        const result = ourStatement.run(req.user.userid, req.body.score, req.body.time_elapsed, req.body.date_of_completion)
+    }
+})
+
+// get
+
+app.get("/getQuizData", (req, res) => {
+    const usernameSelector = db.prepare("SELECT id, score, timeTaken, dateCompleted  FROM quizResults WHERE userId = ?")
+    const quizData = usernameSelector.all(req.user.userid)
+
+    res.json(quizData)
+})
+
+app.get("/isUserLoggedIn", (req, res) => {
+    output = {
+        loggedIn: req.user
+    }
+
+    res.json(output)
 })
 
 app.listen(3000)

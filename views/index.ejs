@@ -15,8 +15,51 @@
         <div id="home" class="flex-center flex-column">
             <h1><a href="/index">Quiz App</a></h1>
             <a class="btn" href="/game">Play quiz</a>
-            <a class="btn" href="/analysis">Open analysis</a>
+            <button class="btn" id="analysisButton">Open analysis</button>
         </div>
     </div>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span id="closeButton" class="closeButton">&times;</span>
+            <h2>Analysis</h2>
+            <h3 id="meanSentence"></h3>
+            <h3 id="standardDeviationSentence"></h3>
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    <div class="modal" id="modalNoLogin">
+        <div class="modal-content">
+            <span id="closeButtonNoLogin" class="closeButton">&times;</span>
+            <h2>Analysis</h2>
+            <h3>Please log in to use the analysis feature.</h3>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            }
+        }
+        });
+    </script>
+
+    <script src="index.js"></script>
 </body>
 </html>

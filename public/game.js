@@ -12,6 +12,7 @@ let acceptingAnswers = false;
 let score = 0
 let questionCounter = 0;
 let availableQuestions = [];
+let total_time_elapsed = 0
 
 let questions = []
 
@@ -62,6 +63,19 @@ const getNewQuestion = () => {
     if(availableQuestions.length == 0 || questionCounter > MAX_QUESTIONS-1){
 
         localStorage.setItem("quizScore", score);
+        
+        fetch("/quizData", {
+            method : "POST",
+            body : JSON.stringify({
+                score: score,
+                time_elapsed: total_time_elapsed,
+                date_of_completion: new Date()
+            }),
+            headers : {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        });
+
         // go to the end page
         return window.location.assign("/end")
     };
@@ -138,6 +152,7 @@ const incrementTimer = num => {
 
         timerText.innerHTML = num;
         num-=1;
+        total_time_elapsed+=1;
         if(!num==0){
             incrementTimer(num);
         } else {
