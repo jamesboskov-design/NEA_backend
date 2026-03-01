@@ -24,7 +24,17 @@
             <h2>Analysis</h2>
             <h3 id="meanSentence"></h3>
             <h3 id="standardDeviationSentence"></h3>
-            <canvas id="myChart"></canvas>
+            <br>
+            <h3>Score by day of the week</h3>
+            <canvas id="scoresByDayChart"></canvas>
+            <br>
+            <h3>Distribution of scores</h3>
+            <canvas id="normalChart"></canvas>
+            <br>
+            <h3 id="lastFiveText"></h3>
+            <br>
+            <h3>Plot of scores over time</h3>
+            <canvas id="linearChart"></canvas>
         </div>
     </div>
     <div class="modal" id="modalNoLogin">
@@ -36,29 +46,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <script>
-        const ctx = document.getElementById('myChart');
-
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                beginAtZero: true
-                }
-            }
-        }
-        });
-    </script>
 
     <script src="index.js"></script>
 </body>

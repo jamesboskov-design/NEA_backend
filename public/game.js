@@ -64,12 +64,14 @@ const getNewQuestion = () => {
 
         localStorage.setItem("quizScore", score);
         
-        fetch("/quizData", {
+        fetch("/claimReward", {
+            
+        })
+
+        fetch("/claimReward", {
             method : "POST",
             body : JSON.stringify({
-                score: score,
-                time_elapsed: total_time_elapsed,
-                date_of_completion: new Date()
+                dayClaimed: currentDay
             }),
             headers : {
                 "Content-type": "application/json; charset=UTF-8"

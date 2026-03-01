@@ -26,6 +26,13 @@ const createTables = db.transaction(() => {
         dateCompleted INTEGER NOT NULL
         )
         `).run()
+    db.prepare(`
+        CREATE TABLE IF NOT EXISTS daysClaimed (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        currentMonth INTEGER NOT NULL,
+        dateClaimed INTEGER NOT NULL
+        )
+        `).run()
 })
 
 createTables()
@@ -59,6 +66,10 @@ app.use(function (req, res, next) {
 
 app.get("/", (req, res) => {
     res.render("index")
+})
+
+app.get("/daily_reward", (req, res) => {
+    res.render("daily_reward")
 })
 
 app.get("/index", (req, res) => {
@@ -197,6 +208,10 @@ app.post("/quizData", (req, res) => {
         const ourStatement = db.prepare("INSERT INTO quizResults (userId, score, timeTaken, dateCompleted) Values (?, ?, ?, ?)")
         const result = ourStatement.run(req.user.userid, req.body.score, req.body.time_elapsed, req.body.date_of_completion)
     }
+})
+
+app.post("/claimReward", (req, res) => {
+    console.log(req.body)
 })
 
 // get

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily reward</title>
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="daily_reward.css">
+</head>
+<body>
+    <div id="content">
+        <a href="/account"><img src="user.png" alt="account" id="account"></a>
+        <a href="/daily_reward"><img src="calendar.png" alt="daily reward" id="daily-reward"></a>
+    </div>
+    <div class="container">
+        <div id="home" class="flex-center flex-column">
+            <h1><a href="/index">Quiz App</a></h1>
+        </div>
+    </div>
+    <div class="container">
+        <h2 id="notLoggedInMessage"></h2>
+    </div>
+    <div class="calendar">
+        <ul>
+            <li id="monthName" class="monthName"></li>
+        </ul>
+        <ol class="days">
+        </ol>
+    </div>
+    <script src="daily_rewards.js"></script>
+</body>
+</html>

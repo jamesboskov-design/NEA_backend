@@ -1,0 +1,56 @@
+.container{
+    max-height: 15rem;
+    padding-top: 20vh;
+    text-align: center;
+}
+
+.monthName {
+    display: grid;
+    background-color: #f2f2f2;
+    grid-template-columns: 1fr;
+    font-weight: bold;
+    font-size: 3rem;
+    justify-items: center;
+}
+
+.days{
+    display: grid;
+    background-color: #f2f2f2;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+li {
+    list-style: none;
+}
+
+.monthName,
+.monthName * {
+    color: #000000;
+}
+
+.days,
+.days * {
+    color: #000000;
+    font-size: 2rem;
+}
+
+.days li{
+    border: 0.1rem solid #000000;
+}
+
+.days li{
+    border: 0.1rem solid #000000;
+    height: 14vh;
+}
+.calendar {
+    padding: 1rem;
+}
+
+.days li.doubleRightBorder {
+    border-right: 0.2rem solid #000000;
+}
+
+.days li.doubleBottomBorder {
+    border-bottom: 0.2rem solid #000000;
+}
+
